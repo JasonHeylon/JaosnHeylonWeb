@@ -1,26 +1,23 @@
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<div class="navbar" role="navigation">
 	      <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <%= link_to("Jason Heylon", root_path , class:"navbar-brand") %>
-	        </div>
-	        <div class="navbar-collapse collapse">
-	          <ul class="nav navbar-nav">
-	            <li class="<%= "active" if yield(:nav_id) == "index" %>">
-	            	<%=  link_to("Index", root_path) %>
-	            </li>
-	            <li class="<%= "active" if yield(:nav_id) == "about"  %>">
-	            	<%= link_to("About", about_path) %>
-	            </li>
-	            <li class="<%= "active" if yield(:nav_id) == "resume"  %>">
-	            	<%= link_to("Resume", resume_path) %>
-	            </li>
-	          </ul>
-	        </div><!--/.nav-collapse -->
+				<div class="logo">
+					<%= link_to("Jason Heylon", root_path , class:"navbar-brand") %>
+				</div>
+	          
+	            <ul class="top-menu">
+			       	<li class="<%= "active" if yield(:nav_id) == "index" %>">
+			       		<%=  link_to("Index", root_path) %>
+			       	</li>
+			       	<li class='<%= "active" if yield(:nav_id) == "blog" %>' >
+			       		<%= link_to("Blog", blog_path) %>
+			       	</li>
+			       	<li class="<%= "active" if yield(:nav_id) == "resume"  %>">
+			       		<%= link_to("Resume", resume_path) %>
+			       	</li>
+			       	<li class="<%= "active" if yield(:nav_id) == "about"  %>">
+			       		<%= link_to("About", about_path) %>
+			       	</li>
+		       </ul>
+	            
 	      </div>
 	    </div>

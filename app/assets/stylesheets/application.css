@@ -12,11 +12,62 @@
  *
  *= require_tree .
  *= require bootstrap
+
+ *= require nprogress
+
  *= require_self
+
 
 
  */
 
  body{
- 	margin-top:50px;
  }
+
+header{
+	height:50px;
+	line-height: 50px;
+	font-size: 16px;
+}
+footer{
+	text-align: center;
+	color:#888;
+}
+
+.navbar-inverse{
+	/*background-color: #fff;*/
+	border: none;
+}
+.navbar{
+
+}
+
+.navbar .logo{
+	font-size: 24px;
+	width:200px;
+	float: left;
+}
+
+ .top-menu{
+	list-style:none;
+	float: right;
+	margin: 0px;
+	padding:0px;
+}
+ .top-menu li{
+	float:left;
+	padding: 0px;
+	margin-left: 20px;
+}
+.top-menu li a{
+	color: #222;
+	text-decoration: none;
+	padding-bottom: 3px;
+}
+.top-menu li.active a,
+.top-menu li a:hover{
+	border-bottom: 1px solid #333;
+}
+.container-fluid{
+	padding: 0px;
+}

@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
+
   root to: "static_pages#index", via: :get
 
   match '/about', to: "static_pages#about", via: :get
   match '/resume', to:"static_pages#resume", via: :get
+
+  match 'blog', to:"articles#index", via: :get
+  resources :articles
 
 
   # The priority is based upon order of creation: first created -> highest priority.

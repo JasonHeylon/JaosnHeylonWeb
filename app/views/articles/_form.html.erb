@@ -1,0 +1,27 @@
+<% if flash[:error_messages] %>
+	<div class="error-message-box">
+		Create article failed because of <%= pluralize(flash[:error_messages].size, "error") %>
+		<ul class="error-tree">
+			<% flash[:error_messages].each do |e| %>
+				<li><%= e %></li>
+			<% end %>
+		</ul>
+
+	</div>
+
+<% end %>
+
+<%= form_for(@article) do |f| %>
+	<p>
+		<%= f.label :title %> <br />
+		<%= f.text_field :title %> 
+	</p>
+	<p>
+		<%= f.label :body %><br />
+		<%= f.text_area :body %>
+	</p>
+
+
+	<%= f.submit class: "btn btn-primary" %>
+
+<% end %>

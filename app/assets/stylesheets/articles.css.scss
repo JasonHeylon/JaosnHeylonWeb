@@ -1,0 +1,21 @@
+// Place all the styles related to the articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.article{
+	border-bottom:1px solid #e1e1e1;
+	.status{
+		text-align: right;
+		color: #e1e1e1;
+	}
+}
+
+.article_status{
+	text-align: right;
+	color: #e1e1e1;
+}
+
+.control-bar{
+	text-align: right;
+}

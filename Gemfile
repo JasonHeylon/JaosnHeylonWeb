@@ -1,17 +1,21 @@
-source 'https://rubygems.org'
+ source 'https://rubygems.org'
+#source 'https://ruby.taobao.org/'
 
+ruby '2.1.0'
 
-
-gem 'bootstrap-sass'
-gem 'bcrypt'
+gem 'bootstrap-sass', '3.2.0.0'
+gem 'bcrypt', '3.1.7'
 
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
+	gem 'rspec-rails', '3.0.2'
 end
 
 group :test do 
-	
+	gem 'selenium-webdriver'
+	gem 'capybara','2.4.1'
+
 end
 
 
@@ -19,7 +23,7 @@ end
 gem 'rails', '4.1.1'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -28,7 +32,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '3.1.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
