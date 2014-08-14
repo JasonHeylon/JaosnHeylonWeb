@@ -71,3 +71,7 @@ footer{
 .container-fluid{
 	padding: 0px;
 }
+
+.notice-box{
+	color:red;
+}

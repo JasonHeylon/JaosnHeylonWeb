@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
 
 
+  get 'comments/new'
+
   root to: "static_pages#index", via: :get
 
   match '/about', to: "static_pages#about", via: :get
   match '/resume', to:"static_pages#resume", via: :get
 
   match 'blog', to:"articles#index", via: :get
-  resources :articles
+  resources :articles do
+    resources :comments
+  end
 
 
   # The priority is based upon order of creation: first created -> highest priority.

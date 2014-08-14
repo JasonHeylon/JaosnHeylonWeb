@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719101319) do
+ActiveRecord::Schema.define(version: 20140805100229) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -20,5 +20,18 @@ ActiveRecord::Schema.define(version: 20140719101319) do
     t.datetime "updated_at"
     t.integer  "read_count", default: 0
   end
+
+  create_table "comments", force: true do |t|
+    t.string   "email"
+    t.integer  "article_id"
+    t.text     "content"
+    t.integer  "reply_to_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "commenter"
+    t.string   "website"
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
 end

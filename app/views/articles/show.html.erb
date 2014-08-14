@@ -1,5 +1,9 @@
 <%= provide(:nav_id, "blog") %>
 
+<div class='notice-box'>
+	<%=flash[:notice] %>
+</div>
+
 <div class="row">
 	<div class="span12">
 		<h1><%= @article.title %></h1>
@@ -16,6 +20,41 @@
 		<p>
 			<%= link_to("Back to Article List", blog_path) %>
 		</p>
+
+		<div class="comments-box">
+
+
+			<div class="comment-list">
+				<% @article.comments.each do |c| %>
+						<%= render @comments %>
+				<% end %>
+			</div>
+
+			<div class="new-comment">
+				<%= form_for([@article, @article.comments.build]) do |f| %>
+					<p><%= f.label :commenter %> <br />
+						<%= f.text_field :commenter %>
+					</p>
+					<p><%= f.label :email %> <br />
+						<%= f.text_field :email %>
+					</p>
+					<p><%= f.label :website %> <br />
+						<%= f.text_field :website %>
+					</p>
+					<p><%= f.label :content %> <br />
+						<%= f.text_area :content %>
+					</p>
+					
+					<p>
+						<%= f.submit "Add Commnet", class: "btn btn-warning" %>
+					</p>
+				<% end %>
+			</div>
+
+
+		</div>
+
+
 
 	</div>
 </div>
