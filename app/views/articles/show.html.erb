@@ -1,14 +1,16 @@
 <%= provide(:nav_id, "blog") %>
 
-<div class='notice-box'>
-	<%=flash[:notice] %>
-</div>
+<!-- <div class='notice-box'>
+	<%#=flash[:notice] %>
+</div> -->
 
 <div class="row">
 	<div class="span12">
 		<h1><%= @article.title %></h1>
 		<div class="control-bar">
-			<%= link_to("Edit", edit_article_path , class: "btn btn-success") %>
+			<% if (current_user && current_user.is_admin?) %>
+				<%= link_to("Edit", edit_article_path , class: "btn btn-success") %>
+			<% end %>
 		</div>
 		<div class="article_body">
 			<%= raw @article.body %>
@@ -32,22 +34,7 @@
 
 			<div class="new-comment">
 				<%= form_for([@article, @article.comments.build]) do |f| %>
-					<p><%= f.label :commenter %> <br />
-						<%= f.text_field :commenter %>
-					</p>
-					<p><%= f.label :email %> <br />
-						<%= f.text_field :email %>
-					</p>
-					<p><%= f.label :website %> <br />
-						<%= f.text_field :website %>
-					</p>
-					<p><%= f.label :content %> <br />
-						<%= f.text_area :content %>
-					</p>
-					
-					<p>
-						<%= f.submit "Add Commnet", class: "btn btn-warning" %>
-					</p>
+					<%#= render :partial => "comments/new_comment", locals:{ f: f } %>
 				<% end %>
 			</div>
 

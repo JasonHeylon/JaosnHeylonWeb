@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805100229) do
+ActiveRecord::Schema.define(version: 20140821074712) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -33,5 +33,17 @@ ActiveRecord::Schema.define(version: 20140805100229) do
   end
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_admin"
+    t.string   "remember_token"
+  end
+
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

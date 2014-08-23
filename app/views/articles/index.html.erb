@@ -3,7 +3,11 @@
 <div class="row">
 	<div class="span12">
 		<h1>My Blog</h1>
-		<div class="control-bar"> <%= link_to("New Article", new_article_path , class: 'btn btn-primary') %></div>
+		<div class="control-bar"> 
+			<% if (current_user && current_user.is_admin?) %>
+				<%= link_to("New Article", new_article_path , class: 'btn btn-primary') %>
+			<% end %>
+			</div>
 		<% @articles.each do |article| %>
 			<div class="article">
 				<h3><%= link_to(article.title, article) %></h3>

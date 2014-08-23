@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   def create
   	@article = Article.find(params[:article_id])
   	@comment = @article.comments.create(comment_params)
-  	flash[:notice] = "invalid comment" if !@comment.valid?
+  	flash[:warning] = "invalid comment" if !@comment.valid?
 
   	redirect_to @article
   end

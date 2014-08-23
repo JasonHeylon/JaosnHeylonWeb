@@ -1,17 +1,31 @@
 Rails.application.routes.draw do
 
 
+  resources :articles do
+    resources :comments
+  end
+
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :users, only: [:edit, :update]
+
+
+
+
   get 'comments/new'
 
   root to: "static_pages#index", via: :get
 
   match '/about', to: "static_pages#about", via: :get
-  match '/resume', to:"static_pages#resume", via: :get
+  match '/resume', to: "static_pages#resume", via: :get
 
-  match 'blog', to:"articles#index", via: :get
-  resources :articles do
-    resources :comments
-  end
+  match '/blog', to: "articles#index", via: :get
+
+
+  match '/jasonlogin', to: "sessions#new", via: :get
+  match '/logout', to: "sessions#destroy", via: :delete
+  match '/mysetting/', to: "users#edit", via: :get
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

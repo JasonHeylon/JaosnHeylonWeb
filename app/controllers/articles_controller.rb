@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
 
 	before_action :set_article, only: [:edit, :update]
   before_action :add_read_number, only: :show
+  before_action :admin_page, only: :new
 
   layout 'application'
 
@@ -30,6 +31,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    
   end
 
   def update
@@ -50,6 +52,12 @@ class ArticlesController < ApplicationController
       # @article.read_count +=1
       # @article.save
       
+    end
+
+    def admin_page
+      unless signed_in?
+        redirect_to root_path
+      end
     end
 
 end

@@ -1,0 +1,26 @@
+<% provide(:title, "Settings") %>
+
+<!-- TODO -->
+<%= form_for(@user) do |f| %>
+	<p>
+		<%= f.label :name %>
+		<%= @user.name %>
+	</p>
+	<p>
+		<%= f.label :old_password, "Old Password" %>
+		<%= f.text_field :old_password %>
+	</p>
+
+	<p>
+		<%= f.label :password %>
+		<%= f.text_field :password %>
+	</p>
+	<p>
+		<%= f.label :password_confirmation %>
+		<%= f.text_field :password_confirmation %>
+	</p>
+
+
+	<p><%= f.submit "Save", class: "btn btn-primary" %></p>
+
+<% end %>
