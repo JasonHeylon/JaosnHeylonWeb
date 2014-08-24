@@ -13,7 +13,7 @@
 				<h3><%= link_to(article.title, article) %></h3>
 				
 				<div class="status">
-					<%= pluralize(article.read_count, "time") %> read,  posted at @<%= article.created_at %>, 
+					<%= pluralize(article.read_count, "time") %> read,  posted at <%= time_ago_in_words(article.created_at) %>, 
 					<%= pluralize(article.comments.count, "comment") %>
 				</div>
 

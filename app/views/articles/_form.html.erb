@@ -18,8 +18,11 @@
 	</p>
 	<p>
 		<%= f.label :body %><br />
-		<%= f.text_area :body %>
+		<%= f.text_area :body, id: "txtArticle", rows: "6", cols: "60",oninput: "this.editor.update()" %>
 	</p>
+	<div id="MarkdownPreview">
+		
+	</div>
 
 
 	<%= f.submit class: "btn btn-primary" %>

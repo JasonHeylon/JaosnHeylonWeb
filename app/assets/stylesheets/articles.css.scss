@@ -3,17 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+
+
 .article{
-	border-bottom:1px solid #e1e1e1;
+	border-bottom:1px solid #aaa;
 	.status{
 		text-align: right;
-		color: #e1e1e1;
+		color: #aaa;
 	}
 }
 
 .article_status{
 	text-align: right;
-	color: #e1e1e1;
+	color: #aaa;
 }
 
 .control-bar{
@@ -32,3 +35,23 @@
 		}
 	}
 }
+
+
+#MarkdownPreview{
+	border: 2px dotted #222;
+	padding:10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.article-title{
+	padding-left:10px;
+	border-left: 4px solid #e1e1e1;
+	padding-bottom: 5px;
+	border-bottom: 1px dashed #e1e1e1;
+}
+.article_body{
+	padding: 10px;
+}
+
+

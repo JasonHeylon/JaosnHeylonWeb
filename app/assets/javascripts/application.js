@@ -16,6 +16,10 @@
 //= require bootstrap
 
 //= require nprogress
+//= require markdown
+//= require highlight.pack
+
+
 //= require_tree .
 
 $(function(){

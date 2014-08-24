@@ -1,8 +1,9 @@
 class ArticlesController < ApplicationController
 
 	before_action :set_article, only: [:edit, :update]
-  before_action :add_read_number, only: :show
   before_action :admin_page, only: :new
+  before_action :set_aritcle_with_comment, only: :show
+  before_action :add_read_number, only: :show
 
   layout 'application'
 
@@ -27,7 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.includes(:comments).find(params[:id])
+    
   end
 
   def edit
@@ -48,9 +49,12 @@ class ArticlesController < ApplicationController
     def set_article
     	@article = Article.find(params[:id])
     end
+    def set_aritcle_with_comment
+      @article = Article.includes(:comments).find(params[:id])
+    end
     def add_read_number
-      # @article.read_count +=1
-      # @article.save
+      @article.read_count += 1
+      @article.save
       
     end
 
