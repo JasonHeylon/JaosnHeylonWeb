@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 
-	before_action :set_article, only: [:edit, :update]
-  before_action :admin_page, only: :new
+	before_action :set_article, only: [:edit, :update, :destroy]
+  before_action :admin_page, only: [:edit, :new, :destroy]
   before_action :set_aritcle_with_comment, only: :show
   before_action :add_read_number, only: :show
 
@@ -38,6 +38,11 @@ class ArticlesController < ApplicationController
   def update
   	@article.update(article_param_for_create_update)
   	redirect_to blog_path
+  end
+
+  def destroy
+    @article.destroy
+    redirect_to blog_path
   end
 
 
