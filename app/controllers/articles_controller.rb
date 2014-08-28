@@ -59,8 +59,10 @@ class ArticlesController < ApplicationController
 
     def add_read_number
       @article = Article.find(params[:id])
-      @article.read_count += 1
-      @article.save
+      unless signed_in?
+        @article.read_count += 1
+        @article.save
+      end
       
     end
 
