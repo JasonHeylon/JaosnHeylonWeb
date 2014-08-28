@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments
   end
+  resources :articles, except: :show
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:edit, :update]

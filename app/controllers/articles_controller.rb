@@ -25,11 +25,13 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    if params.include?(:id)
-      @article = Article.find(params[:id])
-    else
-      @article = Article.find_by(named_url: params[:name])
-    end
+    # if params.include?(:id)
+    #   @article = Article.find(params[:id])
+    # else
+    #   @article = Article.find_by(named_url: params[:name])
+    # end
+    redirect_to articles_path unless params.include?(:name)
+    @article = Article.find_by(named_url: params[:name])
 
     unless signed_in?
       @article.read_count += 1
