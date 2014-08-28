@@ -1,8 +1,6 @@
 class ArticlesController < ApplicationController
 
-	before_action :set_article, only: [:edit, :update, :destroy]
   before_action :admin_page, only: [:edit, :new, :destroy]
-  before_action :add_read_number, only: :show
 
   layout 'application'
 
@@ -27,8 +25,16 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    
+    if params.include?(:id)
+      @article = Article.find(params[:id])
+    else
+      @article = Article.find_by(named_url: params[:name])
+    end
 
+    unless signed_in?
+      @article.read_count += 1
+      @article.save
+    end
   end
 
   def edit
@@ -50,21 +56,9 @@ class ArticlesController < ApplicationController
 
   private
     def article_param_for_create_update
-    	params.require(:article).permit(:title, :body)
+    	params.require(:article).permit(:title, :body, :named_url)
     end
 
-    def set_article
-    	
-    end
-
-    def add_read_number
-      @article = Article.find(params[:id])
-      unless signed_in?
-        @article.read_count += 1
-        @article.save
-      end
-      
-    end
 
     def admin_page
       unless signed_in?

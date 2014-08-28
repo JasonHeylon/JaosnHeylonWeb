@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
 
 
-
+  get '/blog/:name', to: "articles#show", as: 'named_article'
 
   get 'comments/new'
 

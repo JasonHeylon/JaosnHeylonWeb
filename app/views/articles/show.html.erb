@@ -10,7 +10,7 @@
 		<h2 class="article-title"><%= @article.title %></h2>
 		<div class="control-bar">
 			<% if (current_user && current_user.is_admin?) %>
-				<%= link_to("Edit", edit_article_path , class: "btn btn-success") %>
+				<%= link_to("Edit", edit_article_path(@article) , class: "btn btn-success") %>
 			<% end %>
 		</div>
 		<div class="article_body"><%= raw @article.body %></div>
