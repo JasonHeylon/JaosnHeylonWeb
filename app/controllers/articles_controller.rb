@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
   def create
   	@article = Article.new(article_param_for_create_update)
   	if @article.save
-  		redirect_to @article
+  		redirect_to named_article_path(@article.named_url)
   	else
   		if @article.errors.any?
 	  		flash[:error_messages] = @article.errors.full_messages
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
   	@article.update(article_param_for_create_update)
-  	redirect_to blog_path
+  	redirect_to named_article_path(@article.named_url)
   end
 
   def destroy
