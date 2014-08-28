@@ -25,36 +25,26 @@
 		<div class="comments-box">
 
 
-			<div class="comment-list">
-				<% @article.comments.each do |c| %>
-						<%= render @comments %>
-				<% end %>
-			</div>
-
-			<div class="new-comment">
-				<%= form_for([@article, @article.comments.build]) do |f| %>
-					<%#= render :partial => "comments/new_comment", locals:{ f: f } %>
-				<% end %>
-			</div>
-
-
+		<div class="comment-list">
+ 			<%= render "articles/disqus_comments" %>
 		</div>
-
-
 
 	</div>
 </div>
 
 
-<script type="text/javascript">
-	 $(function(){
-		var origin = $(".article_body").text();
-		$(".article_body").html(markdown.toHTML(origin));
-		hljs.initHighlightingOnLoad();
-		$(".article_body pre code").each(function(i, block) {
-            hljs.highlightBlock(block);
-        });
-	 });
-</script>
+<% content_for :scripts do %>
+	<script type="text/javascript">
+		 $(function(){
+			var origin = $(".article_body").text();
+			$(".article_body").html(markdown.toHTML(origin));
+			hljs.initHighlightingOnLoad();
+			$(".article_body pre code").each(function(i, block) {
+	            hljs.highlightBlock(block);
+	        });
+		 });
+	</script>
+<% end %> 
+
 
 

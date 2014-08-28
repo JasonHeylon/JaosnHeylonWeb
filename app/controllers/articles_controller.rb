@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
 
 	before_action :set_article, only: [:edit, :update, :destroy]
   before_action :admin_page, only: [:edit, :new, :destroy]
-  before_action :set_aritcle_with_comment, only: :show
   before_action :add_read_number, only: :show
 
   layout 'application'
@@ -29,10 +28,11 @@ class ArticlesController < ApplicationController
 
   def show
     
+
   end
 
   def edit
-    
+    @article = Article.find(params[:id])
   end
 
   def update
@@ -41,7 +41,8 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
+    Article.find(params[:id]).destroy
+
     redirect_to blog_path
   end
 
@@ -52,12 +53,11 @@ class ArticlesController < ApplicationController
     end
 
     def set_article
-    	@article = Article.find(params[:id])
+    	
     end
-    def set_aritcle_with_comment
-      @article = Article.includes(:comments).find(params[:id])
-    end
+
     def add_read_number
+      @article = Article.find(params[:id])
       @article.read_count += 1
       @article.save
       

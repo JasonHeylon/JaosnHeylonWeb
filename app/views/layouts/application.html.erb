@@ -4,17 +4,16 @@
 	  <title>Jason Heylon - <%= yield(:title) %></title>
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 		
-		<%= render "layouts/shim" %>
+		<%= render "shared/shim" %>
 
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
 		<header>
-			<%= render "layouts/nav" %>
+			<%= render "shared/nav" %>
 
 		</header>
 		<div id="body" class="container">
@@ -33,5 +32,6 @@
 
 
 	</body>
-	<%= render "layouts/footer" %>
+	<%= render "shared/footer" %>
+	<%= yield :scripts %>
 </html>
