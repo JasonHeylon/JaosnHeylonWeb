@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = Article.find(params[:id])
   	@article.update(article_param_for_create_update)
   	redirect_to blog_path
   end
