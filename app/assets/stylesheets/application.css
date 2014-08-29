@@ -15,9 +15,10 @@
 
  *= require nprogress
  *= require railscasts
+ *= require bootstrap-tagsinput
+
 
  *= require_self
-
 
 
  */
@@ -88,3 +89,10 @@ pre{
 	background-color: transparent;
 }
 
+.label a{
+	color:#fff;
+	text-decoration: none;
+}
+.label a:hover{
+	color: #ddd;
+}

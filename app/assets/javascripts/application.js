@@ -19,6 +19,8 @@
 //= require markdown
 //= require highlight.pack
 
+//= require bootstrap-tagsinput
+
 
 //= require_tree .
 

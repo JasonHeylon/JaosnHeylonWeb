@@ -17,16 +17,24 @@
 		<%= f.text_field :title %> 
 	</p>
 	<p>
-		<%= f.label :body %><br />
-		<%= f.text_area :body, id: "txtArticle", rows: "6", cols: "60",oninput: "this.editor.update()" %>
-	</p>
-	<p>
 		<%= f.label :named_url, "Named Url" %><br />
 		<%= f.text_field :named_url %>
 	</p>
-	<div id="MarkdownPreview">
-		
-	</div>
+	<p>
+		<%= f.label :body %><br />
+		<%= f.text_area :body, id: "txtArticle", rows: "6", cols: "60", oninput: "this.editor.update()" %>
+	</p>
+
+	<p>
+		<%= f.label :tag_list, "Tags" %><br />
+		<%= f.text_field :tag_list, "data-role" => "tagsinput" %>
+	</p>	
+
+
+   <div id="MarkdownPreview">
+
+   </div>
+
 
 
 	<%= f.submit class: "btn btn-primary" %>

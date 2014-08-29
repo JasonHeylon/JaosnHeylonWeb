@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+
+
   resources :articles do
     resources :comments
   end
@@ -9,8 +11,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users, only: [:edit, :update]
 
+  match '/blog', to: "articles#index", via: :get
+
 
   get '/blog/:name', to: "articles#show", as: 'named_article'
+  get '/tags/:name', to: "tags#show", as: 'named_tag'
+
 
   get 'comments/new'
 
@@ -19,7 +25,6 @@ Rails.application.routes.draw do
   match '/about', to: "static_pages#about", via: :get
   match '/resume', to: "static_pages#resume", via: :get
 
-  match '/blog', to: "articles#index", via: :get
 
 
   match '/jasonlogin', to: "sessions#new", via: :get

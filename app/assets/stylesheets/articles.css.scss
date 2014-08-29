@@ -16,14 +16,15 @@ body{
 	}
 }
 
-.article_status{
-	text-align: right;
+.article-status{
+	text-align: left;
 	color: #aaa;
+	padding-left:20px;
+}
+.article-tags{
+	
 }
 
-.control-bar{
-	text-align: right;
-}
 
 .comments-box{
 	.new-comment{

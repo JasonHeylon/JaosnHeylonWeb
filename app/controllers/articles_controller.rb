@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+
   	@article = Article.new(article_param_for_create_update)
   	if @article.save
   		redirect_to named_article_path(@article.named_url)
@@ -31,7 +32,7 @@ class ArticlesController < ApplicationController
     #   @article = Article.find_by(named_url: params[:name])
     # end
     redirect_to articles_path unless params.include?(:name)
-    @article = Article.find_by(named_url: params[:name])
+    @article = Article.includes(:tags).find_by(named_url: params[:name])
 
     unless signed_in?
       @article.read_count += 1
@@ -41,6 +42,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = Article.find(params[:id])
+
   end
 
   def update
@@ -58,8 +60,9 @@ class ArticlesController < ApplicationController
 
   private
     def article_param_for_create_update
-    	params.require(:article).permit(:title, :body, :named_url)
+    	params.require(:article).permit(:title, :body, :named_url, :tag_list)
     end
+
 
 
     def admin_page
