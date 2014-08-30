@@ -3,7 +3,7 @@
 				
 				<div class="status">
 					<%= pluralize(article.read_count, "time") %> read,  posted at <%= time_ago_in_words(article.created_at) %>, 
-					<%= link_to("0 comment", named_article_path(article.named_url, anchor: "disqus_thread")) %>
+					<%= link_to("", named_article_path(article.named_url, anchor: "disqus_thread")) %>
 					<%#= pluralize(article.comments.count, "comment") %>
 				</div>
 

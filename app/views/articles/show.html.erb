@@ -45,7 +45,7 @@
 			var origin = $(".article-body").text();
 			$(".article-body").html(markdown.toHTML(origin));
 			hljs.initHighlightingOnLoad();
-			$(".article_body pre code").each(function(i, block) {
+			$(".article-body pre code").each(function(i, block) {
 	            hljs.highlightBlock(block);
 	        });
 		 });
