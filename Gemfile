@@ -11,6 +11,13 @@ gem 'acts-as-taggable-on'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'bcrypt', '3.1.7'
 
+
+gem 'newrelic_rpm'
+
+group :development do
+	gem 'better_errors'
+end
+
 group :development, :test do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
