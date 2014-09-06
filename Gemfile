@@ -16,6 +16,9 @@ gem 'newrelic_rpm'
 
 group :development do
 	gem 'better_errors'
+
+	#Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+	gem 'spring'
 end
 
 group :development, :test do
@@ -57,14 +60,12 @@ group :doc do
 	gem 'sdoc', '~> 0.4.0'
 end
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-group :development do
-	gem 'spring'
-end
+
 
 group :production do 
 	gem 'pg'
 	gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 # Use ActiveModel has_secure_password
